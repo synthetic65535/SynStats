@@ -1,18 +1,18 @@
 <?php
 /*
-	Ñêðèïò äëÿ ãåíåðàöèè àâàòàðîê "íà-ëåòó" èç ñêèíîâ Minecraft. (c) synthetic.
-	Ïðèìåð çàïðîñà: http://mysite.ru/getavatar.php?login=synthetic
+	Ð¡ÐºÑ€Ð¸Ð¿Ñ‚ Ð´Ð»Ñ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð°Ð²Ð°Ñ‚Ð°Ñ€Ð¾Ðº "Ð½Ð°-Ð»ÐµÑ‚Ñƒ" Ð¸Ð· ÑÐºÐ¸Ð½Ð¾Ð² Minecraft. (c) synthetic.
+	ÐŸÑ€Ð¸Ð¼ÐµÑ€ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°: http://mysite.ru/getavatar.php?login=synthetic
 */
 
-// ========== Íàñòðîéêè ===========
-$skins_path = 'fmx/Skins/'; // Ïóòü ê ïàïêå ñî ñêèíàìè. Ñëåø â êîíöå îáÿçàòåëåí.
-$default_skin = 'Default.png'; // Èìÿ ôàéëà äåôîëòíîãî ñêèíà
-$variable_size = true; // Âîçâðàùàòü ëè ðàçíûå ðàçìåðû àâàòàðîê, â çàâèñèìîñòè îò ðàçìåðà ñêèíà?
-// Åñëè variable_size = true, òî çàãðóçêà àâàòàðîê áûñòðåå, íî íóæíî áóäåò ïðàâèòü CSS: https://www.google.ru/search?q=css+disable+resize+antialiasing
-// Åñëè variable_size = false, òî àâàòàðêè áóäóò ðàçäóòû äî îäíîãî ðàçìåðà, çàãðóæàòüñÿ ìåäëåííåå, íî íå áóäåò ïðîáëåì ñ CSS.
-$constant_size = 64; // Åäèíûé ðàçìåð àâàòàðîê äëÿ ñëó÷àÿ variable_size = false
+// ========== ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ===========
+$skins_path = 'fmx/Skins/'; // ÐŸÑƒÑ‚ÑŒ Ðº Ð¿Ð°Ð¿ÐºÐµ ÑÐ¾ ÑÐºÐ¸Ð½Ð°Ð¼Ð¸. Ð¡Ð»ÐµÑˆ Ð² ÐºÐ¾Ð½Ñ†Ðµ Ð¾Ð±ÑÐ·Ð°Ñ‚ÐµÐ»ÐµÐ½.
+$default_skin = 'Default.png'; // Ð˜Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° Ð´ÐµÑ„Ð¾Ð»Ñ‚Ð½Ð¾Ð³Ð¾ ÑÐºÐ¸Ð½Ð°
+$variable_size = true; // Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°Ñ‚ÑŒ Ð»Ð¸ Ñ€Ð°Ð·Ð½Ñ‹Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ Ð°Ð²Ð°Ñ‚Ð°Ñ€Ð¾Ðº, Ð² Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° ÑÐºÐ¸Ð½Ð°?
+// Ð•ÑÐ»Ð¸ variable_size = true, Ñ‚Ð¾ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ð°Ð²Ð°Ñ‚Ð°Ñ€Ð¾Ðº Ð±Ñ‹ÑÑ‚Ñ€ÐµÐµ, Ð½Ð¾ Ð½ÑƒÐ¶Ð½Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ CSS: https://www.google.ru/search?q=css+disable+resize+antialiasing
+// Ð•ÑÐ»Ð¸ variable_size = false, Ñ‚Ð¾ Ð°Ð²Ð°Ñ‚Ð°Ñ€ÐºÐ¸ Ð±ÑƒÐ´ÑƒÑ‚ Ñ€Ð°Ð·Ð´ÑƒÑ‚Ñ‹ Ð´Ð¾ Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð°, Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°Ñ‚ÑŒÑÑ Ð¼ÐµÐ´Ð»ÐµÐ½Ð½ÐµÐµ, Ð½Ð¾ Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼ Ñ CSS.
+$constant_size = 64; // Ð•Ð´Ð¸Ð½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð°Ð²Ð°Ñ‚Ð°Ñ€Ð¾Ðº Ð´Ð»Ñ ÑÐ»ÑƒÑ‡Ð°Ñ variable_size = false
 // ================================
-// Òåõíè÷åñêàÿ ñïåöèôèêàöèÿ ñêèíîâ: https://github.com/minotar/skin-spec
+// Ð¢ÐµÑ…Ð½Ð¸Ñ‡ÐµÑÐºÐ°Ñ ÑÐ¿ÐµÑ†Ð¸Ñ„Ð¸ÐºÐ°Ñ†Ð¸Ñ ÑÐºÐ¸Ð½Ð¾Ð²: https://github.com/minotar/skin-spec
 
 $login = filter_input(INPUT_GET, 'login', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 
@@ -32,7 +32,7 @@ header('Cache-control: public, max-age=3600');
 
 $skin = imagecreatefrompng($filename);
 
-// Åñëè íåêîððåêòíûé png ôàéë
+// Ð•ÑÐ»Ð¸ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ png Ñ„Ð°Ð¹Ð»
 if ($skin === false) {
 	http_response_code(404);
 	exit;
@@ -41,13 +41,13 @@ if ($skin === false) {
 $width = imagesx ($skin);
 $height = imagesy ($skin);
 
-// Ïðîâåðÿåì ðàçìåðû ñêèíà íà êîððåêòíîñòü
+// ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ ÑÐºÐ¸Ð½Ð° Ð½Ð° ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾ÑÑ‚ÑŒ
 if ($width < 64 || $height != $width && $height * 2 != $width) {
 	http_response_code(404);
 	exit;
 }
 
-// Ïðîâåðÿåì, ñîäåðæèò ëè ñêèí ïðîçðà÷íûå ïèêñåëè
+// ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼, ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ Ð»Ð¸ ÑÐºÐ¸Ð½ Ð¿Ñ€Ð¾Ð·Ñ€Ð°Ñ‡Ð½Ñ‹Ðµ Ð¿Ð¸ÐºÑÐµÐ»Ð¸
 $transparency = false;
 for($i = 0; $i < $width; $i++) {
     for($j = 0; $j < $height; $j++) {
@@ -62,13 +62,13 @@ for($i = 0; $i < $width; $i++) {
 $size_src = intval($width / 64) * 8;
 $size_dst = $variable_size ? $size_src : $constant_size;
 
-// Ñîçäà¸ì èçîáðàæåíèå ñ ÷¸ðíûì ôîíîì (ïî-óìîë÷àíèþ òåëî Ñòèâà ÷¸ðíîå)
+// Ð¡Ð¾Ð·Ð´Ð°Ñ‘Ð¼ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ñ Ñ‡Ñ‘Ñ€Ð½Ñ‹Ð¼ Ñ„Ð¾Ð½Ð¾Ð¼ (Ð¿Ð¾-ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ Ñ‚ÐµÐ»Ð¾ Ð¡Ñ‚Ð¸Ð²Ð° Ñ‡Ñ‘Ñ€Ð½Ð¾Ðµ)
 $img = imagecreatetruecolor($size_dst, $size_dst);
 imagefill($img, 0, 0, imagecolorallocate($img, 0, 0, 0));
 
-// Êîïèðóåì ëèöî
+// ÐšÐ¾Ð¿Ð¸Ñ€ÑƒÐµÐ¼ Ð»Ð¸Ñ†Ð¾
 imagecopyresized ($img, $skin, 0, 0, $size_src, $size_src, $size_dst, $size_dst, $size_src, $size_src);
-// Åñëè ïðîçðà÷íîñòü ïîääåðæèâàåòñÿ, íàêëàäûâàåì øëåì
+// Ð•ÑÐ»Ð¸ Ð¿Ñ€Ð¾Ð·Ñ€Ð°Ñ‡Ð½Ð¾ÑÑ‚ÑŒ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ, Ð½Ð°ÐºÐ»Ð°Ð´Ñ‹Ð²Ð°ÐµÐ¼ ÑˆÐ»ÐµÐ¼
 if ($transparency)
 	imagecopyresized ($img, $skin, 0, 0, $size_src * 5, $size_src, $size_dst, $size_dst, $size_src, $size_src);
 

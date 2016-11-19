@@ -1,69 +1,69 @@
 <?php
 
-// Ïóòü ê ôàéëó servers.php
+// ÐŸÑƒÑ‚ÑŒ Ðº Ñ„Ð°Ð¹Ð»Ñƒ servers.php
 // Path to servers.php
 $server_path = 'http://mysite.com/stats/server.php';
 
-// Ïóòü ê ôàéëó avatar.php
+// ÐŸÑƒÑ‚ÑŒ Ðº Ñ„Ð°Ð¹Ð»Ñƒ avatar.php
 // Path fo avatar.php
 $avatar_path = 'http://mysite.com/avatar.php';
 
-// Èñïîëüçîâàòü ëè ÁÄ äëÿ ïîëó÷åíèÿ ñïèñêà ïîëüçîâàòåëåé. Èíà÷å áóäåò èñïîëüçîâàòüñÿ òåêñòîâûé ôàéë.
+// Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð»Ð¸ Ð‘Ð” Ð´Ð»Ñ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ ÑÐ¿Ð¸ÑÐºÐ° Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹. Ð˜Ð½Ð°Ñ‡Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒÑÑ Ñ‚ÐµÐºÑÑ‚Ð¾Ð²Ñ‹Ð¹ Ñ„Ð°Ð¹Ð».
 // Should we use a database to get a players list. Text file will be used instead.
 $use_database = true;
 
-// Ïóòü ê ôàéëó ñî ñïèñêîì ïîëüçîâàòåëåé. Áóäåò èñïîëüçîâàòüñÿ åñëè $use_database == false
+// ÐŸÑƒÑ‚ÑŒ Ðº Ñ„Ð°Ð¹Ð»Ñƒ ÑÐ¾ ÑÐ¿Ð¸ÑÐºÐ¾Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹. Ð‘ÑƒÐ´ÐµÑ‚ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒÑÑ ÐµÑÐ»Ð¸ $use_database == false
 // Path fo text file with list of logins. Will be used if $use_database == false
 $players_list_filename = 'players_list.txt';
 
-// Èíòåðâàë ìåæäó çàïðîñàìè ñòàòèñòèêè ê server.php, â ñåêóíäàõ
+// Ð˜Ð½Ñ‚ÐµÑ€Ð²Ð°Ð» Ð¼ÐµÐ¶Ð´Ñƒ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°Ð¼Ð¸ ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÐ¸ Ðº server.php, Ð² ÑÐµÐºÑƒÐ½Ð´Ð°Ñ…
 // Interval between updates of all stats with query to server.php, in seconds
 $update_time = 3500;
 
-// Ñêîëüêî èãðîêîâ îòîáðàæàòü íà îäíîé ñòðàíèöå
+// Ð¡ÐºÐ¾Ð»ÑŒÐºÐ¾ Ð¸Ð³Ñ€Ð¾ÐºÐ¾Ð² Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒ Ð½Ð° Ð¾Ð´Ð½Ð¾Ð¹ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ
 // How many players should be displayed at one page
 $players_at_page = 20;
 
-// Êîëè÷åñòâî êíîïîê äëÿ ïîñòðàíè÷íîé íàâèãàöèè. Íå÷¸òíîå ÷èñëî áîëüøåå èëè ðàâíîå 7.
+// ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ½Ð¾Ð¿Ð¾Ðº Ð´Ð»Ñ Ð¿Ð¾ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ‡Ð½Ð¾Ð¹ Ð½Ð°Ð²Ð¸Ð³Ð°Ñ†Ð¸Ð¸. ÐÐµÑ‡Ñ‘Ñ‚Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð±Ð¾Ð»ÑŒÑˆÐµÐµ Ð¸Ð»Ð¸ Ñ€Ð°Ð²Ð½Ð¾Ðµ 7.
 // A number of buttins in page navigation. Must be an odd number greater or equal to 7.
 $buttons_count = 9;
 
-// Ðàñïîëîæåíèå äèðåêòèðèè ñ èêîíêàìè
+// Ð Ð°ÑÐ¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð´Ð¸Ñ€ÐµÐºÑ‚Ð¸Ñ€Ð¸Ð¸ Ñ Ð¸ÐºÐ¾Ð½ÐºÐ°Ð¼Ð¸
 // A location of directory with images
 $img_dir = '/stats/img/';
 
-// Èìÿ ôàéëà êåøà ñïèñêà ïîëüçîâàòåëåé
+// Ð˜Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° ÐºÐµÑˆÐ° ÑÐ¿Ð¸ÑÐºÐ° Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹
 // Players toplist cache file name
 $cache_toplist = 'client_data_cache_toplist.json';
 
-// Èìÿ ôàéëà êåøà âðåìåíè
+// Ð˜Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° ÐºÐµÑˆÐ° Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸
 // Time cache file name
 $time_cache = 'client_time_cache.json';
 
-// Èìÿ ôàéëà êåøà äàííûõ
+// Ð˜Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° ÐºÐµÑˆÐ° Ð´Ð°Ð½Ð½Ñ‹Ñ…
 // Data cache file name
 $cache_stats = 'client_data_cache_stats.json';
 
-// === Íàñòðîéêè ÁÄ ===
+// === ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð‘Ð” ===
 // === Database Settings ===
 
-// Íàçâàíèå áàçû äàííûõ
+// ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…
 // Database name
 $db_name = 'mydatabase';
 
-// Èìÿ ïîëüçîâàòåëÿ
+// Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ
 // Username to connect
 $db_username = 'myusername';
 
-// Ïàðîëü
+// ÐŸÐ°Ñ€Ð¾Ð»ÑŒ
 // Password to connect
 $db_password = 'mypassword';
 
-// Àäðåñ
+// ÐÐ´Ñ€ÐµÑ
 // DB Address
 $db_host = 'localhost';
 
-// SQL-çàïðîñ íà ïîëó÷åíèå ñïèñêà ïîëüçîâàòåëåé
+// SQL-Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð½Ð° Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ ÑÐ¿Ð¸ÑÐºÐ° Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹
 // SQL-query for getting a players list
 $user_list_query = 'SELECT username FROM users';
 
