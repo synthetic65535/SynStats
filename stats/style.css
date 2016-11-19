@@ -1,0 +1,131 @@
+body {
+font-family: Verdana,Helvetica,Arial,sans-serif;
+}
+
+/* login */
+#lgn {
+font-size: 1.5em;
+font-weight: bold;
+}
+
+/* avatar cell */
+#avc {
+width: 40%;
+}
+
+/* ocon, avatar small, number */
+.icn, .avs, .num {
+width: 10%;
+}
+
+
+/* value, multiplier, result */
+.val, .mul, .res {
+width: 15%;
+}
+
+/* points */
+.pts {
+width: 20%;
+}
+
+/* avatar image, avatar image small */
+#avi, .ais {
+border: 1px solid silver;
+}
+
+/* icon image */
+.iim, .ais {
+width: 32px;
+height: 32px;
+}
+
+#avi {
+width: 64px;
+height: 64px;
+}
+
+#avi, .iim, .ais {
+vertical-align: middle;
+image-rendering: optimizeSpeed;
+image-rendering: -moz-crisp-edges;
+image-rendering: -o-crisp-edges
+image-rendering: -webkit-optimize-contrast;
+image-rendering: pixelated;
+image-rendering: optimize-contrast;
+-ms-interpolation-mode: nearest-neighbor;
+}
+
+td div {
+width: 100%;
+height: 32px;
+line-height: 32px;
+}
+
+/* table, navigation, message */
+.tbl, .nav, .msg {
+max-width: 1000px;
+margin: auto;
+width: 100%;
+}
+
+.tbl, .nav {
+border-collapse: collapse;
+margin-bottom: 20px;
+}
+
+.nav {
+table-layout: fixed;
+}
+
+.tbl td, .nav td {
+height: 32px;
+border: 1px solid silver;
+padding: 3px;
+text-align: center;
+}
+
+.nav td {
+padding: 0;
+}
+
+.tbl th {
+padding: 10px 0 5px 0;
+}
+
+/* current page */
+.cur {
+background-color: gainsboro;
+}
+
+/* search */
+#sch {
+border: 0;
+height: 50px;
+font-size: 1.2em;
+}
+
+.sfm input {
+font-size: 1em;
+}
+
+/* search bar */
+#sbr {
+width: 50%;
+}
+
+.icn {
+padding: 2px !important;
+}
+
+/* integer */
+.int {
+border: 1px solid white;
+}
+
+/* achievement */
+.ach {
+border: 1px solid black;
+border-radius: 4px;
+background-color: #9e9e9e;
+}
