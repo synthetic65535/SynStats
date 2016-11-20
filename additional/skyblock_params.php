@@ -19,7 +19,7 @@ $interesting_params[] = array(
 		);
 		//добыл дерева
 $interesting_params[] = array(
-		'id' => 'stat.mineBlock.5',
+		'id' => 'stat.mineBlock.17',
 		'name' => 'Добыл дерева:',
 		'mul' => 1,
 		'premul' => 1,

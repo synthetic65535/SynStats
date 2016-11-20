@@ -355,7 +355,7 @@ if ($login !== null)
 			foreach ($interesting_params as $thekey => $field)
 			{
 ?>
-<tr><td class="icn"><img src="<?php echo $field['img']; ?>" class="iim <?php echo ($field['achievement'] == true) ? 'ach': 'int'; ?>" /></td><td colspan="2"><?php echo $field['name']; ?></td><td class="val"><?php echo (($field['achievement'] == true) ? ($playerdata['s'.$thekey] > 0 ? 'Выполнено' : 'Нет') : ($playerdata['s'.$thekey])); ?></td><td class="mul"><?php echo $field['mul']; ?></td><td class="res"><?php echo round($field['mul'] * $playerdata['s'.$thekey]); ?></td><tr>
+<tr><td class="icn"><img src="<?php echo $field['img']; ?>" class="iim <?php echo ($field['achievement'] == true) ? 'ach': 'int'; ?>" /></td><td colspan="2"><?php echo $field['name']; ?></td><td class="val"><?php echo (($field['achievement'] == true) ? ($playerdata['s'.$thekey] > 0 ? $lang['yes'] : $lang['no']) : ($playerdata['s'.$thekey])); ?></td><td class="mul"><?php echo $field['mul']; ?></td><td class="res"><?php echo round($field['mul'] * $playerdata['s'.$thekey]); ?></td><tr>
 <?php
 			}
 
