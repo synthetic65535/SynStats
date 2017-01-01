@@ -322,14 +322,26 @@ if ($login !== null)
 	$found = false;
 	if (strlen($login) > 0)
 	{
+		//Поиск на точное совпадение логинов
 		$login_lowercase = strtolower($login);
 		foreach ($stats as $onestat)
-			if (strpos(strtolower($onestat['l']),$login_lowercase) !== false)
+			if (strcmp(strtolower($onestat['l']), $login) === 0)
 			{
 				$playerdata = $onestat;
 				$found = true;
 				break;
 			}
+		//Если точный логин не найден, ищем включения
+		if ($found === false)
+		{
+			foreach ($stats as $onestat)
+				if (strpos(strtolower($onestat['l']), $login_lowercase) !== false)
+				{
+					$playerdata = $onestat;
+					$found = true;
+					break;
+				}
+		}
 	}
 	
 	//Если информация об игроке найдена, выводим её в формате html
