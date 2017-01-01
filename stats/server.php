@@ -51,7 +51,13 @@ function extract_player_data($jsondata, &$playerdata)
 		if ($field['achievement'] == true) {
 			$playerdata['s'.$thekey] = ($jsondata[$field['id']] > 0 ? 1 : 0);
 		} else {
-			$playerdata['s'.$thekey] = round($jsondata[$field['id']] * $field['premul']);
+			if (strpos($field['id'], 'mineBlock') !== false)
+			{
+				//Используем разницу между количеством добытых и поставленных блоков
+				$playerdata['s'.$thekey] = round(($jsondata[$field['id']] - $jsondata[str_replace('mineBlock', 'useItem', $field['id'])]) * $field['premul']);
+			} else {
+				$playerdata['s'.$thekey] = round($jsondata[$field['id']] * $field['premul']);
+			}
 		}
 		//Вычисляем количество очков
 		$points += round($field['mul'] * $playerdata['s'.$thekey]);
