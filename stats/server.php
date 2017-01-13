@@ -54,7 +54,7 @@ function extract_player_data($jsondata, &$playerdata)
 			if (strpos($field['id'], 'mineBlock') !== false)
 			{
 				//Используем разницу между количеством добытых и поставленных блоков
-				$playerdata['s'.$thekey] = round(($jsondata[$field['id']] - $jsondata[str_replace('mineBlock', 'useItem', $field['id'])]) * $field['premul']);
+				$playerdata['s'.$thekey] = max(0, round(($jsondata[$field['id']] - $jsondata[str_replace('mineBlock', 'useItem', $field['id'])]) * $field['premul']));
 			} else {
 				$playerdata['s'.$thekey] = round($jsondata[$field['id']] * $field['premul']);
 			}
