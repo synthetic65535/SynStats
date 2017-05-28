@@ -7,6 +7,7 @@ $cache_file = 'server_data_cache.json'; //Имя файла кеша данны�
 $time_file = 'server_time_cache.json'; //Имя файла кеша времени
 $check_time = 3600; //Обновление кэша каждый час
 $max_records = 1000; //Максимальное количество записей в статистике
+$img_dir = '';
 
 // =======================================
 
@@ -30,7 +31,7 @@ include 'params.php';
 $cur_time = time();
 $last_check = file_get_contents($time_file);
 $interval = $cur_time-$last_check;
-$max_age = $update_time - $interval;
+$max_age = $check_time - $interval;
 if ($max_age < 0) $max_age = 0;
 
 // =======================================
