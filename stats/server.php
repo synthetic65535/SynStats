@@ -49,16 +49,21 @@ function extract_player_data($jsondata, &$playerdata)
 	$points = 0;
 	foreach ($interesting_params as $thekey => $field)
 	{
-		if ($field['achievement'] == true) {
-			$playerdata['s'.$thekey] = ($jsondata[$field['id']] > 0 ? 1 : 0);
-		} else {
-			if (strpos($field['id'], 'mineBlock') !== false)
-			{
-				//Используем разницу между количеством добытых и поставленных блоков
-				$playerdata['s'.$thekey] = max(0, round(($jsondata[$field['id']] - $jsondata[str_replace('mineBlock', 'useItem', $field['id'])]) * $field['premul']));
+		if (isset($jsondata[$field['id']]))
+		{
+			if ($field['achievement'] == true) {
+				$playerdata['s'.$thekey] = ($jsondata[$field['id']] > 0 ? 1 : 0);
 			} else {
-				$playerdata['s'.$thekey] = round($jsondata[$field['id']] * $field['premul']);
+				if (strpos($field['id'], 'mineBlock') !== false)
+				{
+					//Используем разницу между количеством добытых и поставленных блоков
+					$playerdata['s'.$thekey] = max(0, round(($jsondata[$field['id']] - $jsondata[str_replace('mineBlock', 'useItem', $field['id'])]) * $field['premul']));
+				} else {
+					$playerdata['s'.$thekey] = round($jsondata[$field['id']] * $field['premul']);
+				}
 			}
+		} else {
+			$playerdata['s'.$thekey] = 0;
 		}
 		//Вычисляем количество очков
 		$points += round($field['mul'] * $playerdata['s'.$thekey]);
