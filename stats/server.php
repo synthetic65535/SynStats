@@ -29,7 +29,9 @@ include 'params.php';
 
 //Вычисляем время, прошедшее с последнего обновления кеша
 $cur_time = time();
-$last_check = file_get_contents($time_file);
+if (file_exists($time_file))
+	$last_check = file_get_contents($time_file); else
+	$last_check = 0;
 $interval = $cur_time-$last_check;
 $max_age = $check_time - $interval;
 if ($max_age < 0) $max_age = 0;
@@ -57,7 +59,8 @@ function extract_player_data($jsondata, &$playerdata)
 				if (strpos($field['id'], 'mineBlock') !== false)
 				{
 					//Используем разницу между количеством добытых и поставленных блоков
-					$playerdata['s'.$thekey] = max(0, round(($jsondata[$field['id']] - $jsondata[str_replace('mineBlock', 'useItem', $field['id'])]) * $field['premul']));
+					$placeblock = str_replace('mineBlock', 'useItem', $field['id']);
+					$playerdata['s'.$thekey] = max(0, round(($jsondata[$field['id']] - (isset($jsondata[$placeblock]) ? ($jsondata[$placeblock] * $field['premul']) : 0))));
 				} else {
 					$playerdata['s'.$thekey] = round($jsondata[$field['id']] * $field['premul']);
 				}
