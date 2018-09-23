@@ -1,6 +1,15 @@
 <?php
-
+		//Количество ачивок
+$interesting_params[] = array(
+		'id' => 'achievement_counter',
+		'name' => 'Выполнено достижений:',
+		'mul' => 100,
+		'premul' => 1,
+		'img' => $img_dir.'diamonds.png',
+		'achievement' => true
+		);
 		//прошел расстояние
+		/*
 $interesting_params[] = array(
 		'id' => 'stat.walkOneCm',
 		'name' => 'Прошел расстояние:',
@@ -34,8 +43,9 @@ $interesting_params[] = array(
 		'mul' => 0.001,
 		'premul' => 1,
 		'img' => $img_dir.'hp.png',
-		'achievement' => false
-		);
+		'achievement' => false,
+		'achievement_counter' => false
+		);*/
 		//мобов убил
 $interesting_params[] = array(
 		'id' => 'stat.mobKills',
@@ -70,7 +80,8 @@ $interesting_params[] = array(
 		'mul' => 3,
 		'premul' => 1,
 		'img' => $img_dir.'diamond_ore.png',
-		'achievement' => false
+		'achievement' => false,
+		'achievement_counter' => false
 		);
 		//добыл железа
 $interesting_params[] = array(
@@ -88,7 +99,8 @@ $interesting_params[] = array(
 		'mul' => 1,
 		'premul' => 1,
 		'img' => $img_dir.'gold_ore.png',
-		'achievement' => false
+		'achievement' => false,
+		'achievement_counter' => false
 		);
 		//добыл лазурита
 $interesting_params[] = array(
@@ -115,7 +127,8 @@ $interesting_params[] = array(
 		'mul' => 1,
 		'premul' => 1,
 		'img' => $img_dir.'quartz_ore.png',
-		'achievement' => false
+		'achievement' => false,
+		'achievement_counter' => false
 		);
 		//добыл угля
 $interesting_params[] = array(

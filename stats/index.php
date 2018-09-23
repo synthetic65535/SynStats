@@ -324,7 +324,7 @@ if ($login !== null)
 		//Поиск на точное совпадение логинов
 		$login_lowercase = strtolower($login);
 		foreach ($stats as $onestat)
-			if (strcmp(strtolower($onestat['l']), $login) === 0)
+			if (strcmp(strtolower($onestat['l']), $login_lowercase) === 0)
 			{
 				$playerdata = $onestat;
 				$found = true;
