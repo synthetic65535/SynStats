@@ -51,6 +51,14 @@ function extract_player_data($jsondata, &$playerdata)
 	$points = 0;
 	foreach ($interesting_params as $thekey => $field)
 	{
+		if ($field['id'] == 'achievement_counter')
+		{
+			$counter = 0;
+			foreach ($jsondata as $secondkey => $secondfield)
+				if (((strpos($secondkey, 'achievement.') !== false) || (strpos($secondkey, 'ic2.') !== false)) && (strpos($secondkey, '.exploreAllBiomes') === false))
+					$counter++;
+			$playerdata['s'.$thekey] = round($counter * $field['premul']);
+		} else
 		if (isset($jsondata[$field['id']]))
 		{
 			if ($field['achievement'] == true) {
